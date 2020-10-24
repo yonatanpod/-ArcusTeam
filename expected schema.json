@@ -1,0 +1,42 @@
+{
+    "type":"object",
+    "properties": {
+        "vendor": {"type":"string"},
+        "url": {"type":"string"},
+        "series": {"type":"string"},
+        "category": {"type":"string"},
+        "model": {"type":"string"},
+        "path": {"type":"string"},
+        "release": {"type":"number"},
+        "endofsale": {"type":"number"},
+        "endofsupport": {"type":"number"},
+        "downloads": {
+            "type": "array",
+            "items" : [
+                  {
+                    "type": "object",
+                    "properties": {
+                        "latest":{"type":"string"},
+                        "filename": {"type":"string"},
+                        "size": {"type":"number"},
+                        "md5": {"type":"string"}
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                        "all": {"type":"string"}
+                    }
+                  }
+            ]
+        }
+    },
+    "required": [
+        "vendor",
+        "url",
+        "series",
+        "category",
+        "model",
+        "release"
+      ]
+}

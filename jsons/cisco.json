@@ -1,0 +1,43 @@
+{
+
+  "vendor": "cisco.com",
+
+  "url": "https://www.cisco.com/c/en/us/support/routers/910-industrial-router/model.html",
+
+  "series": "Cisco 900 Series Industrial Routers",
+
+  "category": "Routers",
+
+  "model": "Cisco 910 Industrial Router",
+
+  "path": "/Support/Product Support/Routers/Cisco 900 Series Industrial Routers",
+
+  "release": 1404766800,
+
+  "endofsale": 1473886800,
+
+  "endofsupport": 1645998200,
+
+  "downloads": [
+
+    {
+
+      "latest": "1.2.1RB4",
+
+      "filename": "firmware_P2MB_1.2.1rb4.zip",
+
+      "size": 32406078,
+
+      "md5": "a81300ffccbceff4f714c99c3ca3a12b"
+
+    },
+
+    {
+
+      "all": "https://software.cisco.com/download/home/286277668/type/286277896/release/1.2.1RB4?i=!pp"
+
+    }
+
+  ]
+
+}
