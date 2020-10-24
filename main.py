@@ -10,10 +10,12 @@ for json_name in os.listdir("jsons"):
     with open('jsons' + os.path.sep + json_name, 'r') as f:
         data = json.load(f)
 
+    # Check if a model already exists in DB
     if data['model'] in models_list:
         print(f'----File name: {json_name}\n------Model{data["model"]} already exists in DB.')
         continue
 
+    # Validate JSON
     models_list.append(data['model'])
     validation_results = validator.validate(data)
 

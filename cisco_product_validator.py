@@ -17,8 +17,8 @@ class CiscoProductValidator(object):
 
     def __init__(self, schema_path: str = "expected schema.json"):
         """
-        Initializing variables that we'll use later.
-        :param schema_path: path to schema file that describes the json schema.
+        Initializing variables.
+        :param schema_path: path to schema file that describes the JSON schema.
         """
         with open(schema_path, 'r') as f:
             self.json_schema = json.load(f)
@@ -27,8 +27,8 @@ class CiscoProductValidator(object):
 
     def validate_schema(self, my_json: dict) -> bool:
         """
-        Validating JSON schema matches the expected schema.
-        :param my_json: JSON file we check.
+        Validating that JSON schema matches the expected schema.
+        :param my_json: JSON file to check.
         :return: True if schema matched.
         """
         try:
@@ -40,7 +40,7 @@ class CiscoProductValidator(object):
     def validate_unix_path(self, my_json: dict) -> bool:
         """
         Validating that the path field in the JSON is a UNIX path.
-        :param my_json: JSON file we check.
+        :param my_json: JSON file to check.
         :return: True if the path is a UNIX path.
         """
         if self.path_regex.match(my_json['path']):
@@ -50,8 +50,8 @@ class CiscoProductValidator(object):
 
     def validate_product_url(self, my_json: dict) -> bool:
         """
-        Validating if the product url is alive.
-        :param my_json: JSON file we check.
+        Validating that the product url is alive.
+        :param my_json: JSON file to check.
         :return: True if the url is alive.
         """
         try:
@@ -64,8 +64,8 @@ class CiscoProductValidator(object):
 
     def validate_download_link(self, my_json: dict) -> bool:
         """
-        Validate that download url is a url and it's alive.
-        :param my_json: JSON file we check.
+        Validate that download url is a url and is alive.
+        :param my_json: JSON file to check.
         :return: True if the link exists and alive.
         """
         for item in my_json['downloads']:
@@ -81,9 +81,9 @@ class CiscoProductValidator(object):
     def validate_dates(self, my_json: dict) -> bool:
         """
         Validate dates: release date is mandatory, endofsale has to be after release date,
-        endofsupport has to be the lates date.
+        endofsupport has to be the latest date.
         Endofsale and endofsupport can be missing.
-        :param my_json: JSON file we check.
+        :param my_json: JSON file to check.
         :return: True if all the dates are consistent.
         """
         if my_json['release'] > self.first_cisco_product_release:
@@ -102,8 +102,8 @@ class CiscoProductValidator(object):
 
     def validate_model(self, my_json: dict) -> bool:
         """
-        Validate model in the JSON is the same as in HTML.
-        :param my_json: JSON file we check.
+        Validate that model field in the JSON is the same as in HTML.
+        :param my_json: JSON file to check.
         :return: True if the strings match.
         """
         try:
@@ -122,8 +122,8 @@ class CiscoProductValidator(object):
     def validate(self, my_json: dict) -> list:
         """
         Running all the validations and saving errors in a list.
-        :param my_json: JSON file we check.
-        :return: Emprty list if there were no errors, list of errors otherwise.
+        :param my_json: JSON file to check.
+        :return: Empty list if there were no errors, list of errors otherwise.
         """
         failed = []
         if not self.validate_schema(my_json):
