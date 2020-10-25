@@ -3,7 +3,7 @@ from cisco_product_validator import CiscoProductValidator
 import os
 
 validator = CiscoProductValidator()
-models_list = []
+db = []
 
 for json_name in os.listdir("jsons"):
 
@@ -11,7 +11,7 @@ for json_name in os.listdir("jsons"):
         data = json.load(f)
 
     # Check if a model already exists in the DB
-    if data['model'] in models_list:
+    if data['model'] in db:
         print(f'----File name: {json_name}\n------Model{data["model"]} already exists in DB.')
         continue
 
@@ -20,6 +20,6 @@ for json_name in os.listdir("jsons"):
 
     # Adding a model to the DB only if it passed validations
     if not validation_results:
-        models_list.append(data['model'])
+        db.append(data['model'])
 
     print(f'++++File name: {json_name} \n++++++Result: {"Success" if not validation_results else validation_results}')
